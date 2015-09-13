@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var GymPeopleSchema = mongoose.Schema({
-    count: Double,
-    time: Timestamp
+    count: Number,
+    date: Date
 });
 
-module.exports = GymPeopleSchema;
+module.exports = mongoose.model('GymPeople', GymPeopleSchema);

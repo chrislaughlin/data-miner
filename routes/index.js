@@ -3,6 +3,7 @@ var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
 var url = 'http://www.puregym.com/gyms/belfast/whats-happening';
+var GymPeople = require('../schemas/gymPeople');
 
 function getNoPeopleInGym(cb) {
     request(url, function (error, response, html) {
@@ -10,7 +11,14 @@ function getNoPeopleInGym(cb) {
         if (!error) {
             var $ = cheerio.load(html);
             people = $('.people-number').html();
-            console.log(people);
+            var gymPeople = new GymPeople({count: people, date: new Date()});
+            gymPeople.save(function(err, record) {
+                if (!err) {
+                    console.log("Saved record", JSON.stringify(record));
+                } else {
+                    console.error("Failed to save:", err);
+                }
+            });
         }
         cb(people);
     });
