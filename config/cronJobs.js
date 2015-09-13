@@ -1,6 +1,12 @@
+var schedule = require('node-schedule');
+
 module.exports = {
-    gym: {
-        expression: '0 0 0/1 1/1 * ? *',
-        name: 'Gym People'
+    gym: function() {
+        var rule = new schedule.RecurrenceRule();
+        rule.minute = 30;
+        return {
+            name: 'Gym People',
+            rule: rule
+        }
     }
 };

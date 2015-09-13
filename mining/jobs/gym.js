@@ -1,6 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var GymPeople = require('../schemas/gymPeople');
+var GymPeople = require('../../schemas/gymPeople');
 var countElement = '.people-number';
 var url = 'http://www.puregym.com/gyms/belfast/whats-happening?no-cache='+ new Date().toISOString();
 var options = {
