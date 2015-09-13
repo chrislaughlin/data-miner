@@ -1,0 +1,20 @@
+{
+  "name": "data-miner",
+  "version": "0.0.0",
+  "description": "NodeJS app for mining data from sites",
+  "main": "server/src/server.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "data",
+    "miner"
+  ],
+  "author": "Chris Laughlin",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.13.3",
+    "request": "~2.61.0",
+    "cheerio": "~0.19.0"
+  }
+}
